@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Weather App</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: Arial, sans-serif; background: #f1f5f9; min-height: 100vh; display: flex; flex-direction: column; align-items: center; padding: 2rem 1rem; }
+    h1 { color: #1a56a5; margin-bottom: 1.5rem; }
+    .search-bar { display: flex; gap: .5rem; margin-bottom: 1rem; flex-wrap: wrap; justify-content: center; }
+    #cityInput { padding: .7rem 1rem; border: 1px solid #cbd5e1; border-radius: 8px; font-size: 1rem; width: 220px; }
+    button { padding: .7rem 1.2rem; border: none; border-radius: 8px; cursor: pointer; font-size: 1rem; }
+    #searchBtn { background: #1a56a5; color: #fff; }
+    #geoBtn    { background: #d97706; color: #fff; }
+    #loader    { margin: 1rem; font-size: 1.5rem; animation: spin 1s linear infinite; }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    #error { color: #dc2626; background: #fef2f2; border: 1px solid #fca5a5; padding: .75rem 1rem; border-radius: 8px; max-width: 500px; margin-bottom: 1rem; }
+    #weather { background: #fff; border-radius: 16px; padding: 2rem; max-width: 500px; width: 100%; box-shadow: 0 4px 24px rgba(0,0,0,.1); }
+    .current { display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem; }
+    .current img { width: 80px; height: 80px; }
+    #temp { font-size: 3rem; font-weight: 700; color: #1a56a5; }
+    #city-name { font-size: 1.3rem; font-weight: 600; }
+    #desc { color: #64748b; text-transform: capitalize; }
+    .details { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: .75rem; margin-bottom: 1.5rem; }
+    .detail { background: #f8fafc; border-radius: 8px; padding: .75rem; text-align: center; }
+    .detail-label { font-size: .75rem; color: #64748b; }
+    .detail-val   { font-size: 1rem; font-weight: 600; }
+    h3 { margin-bottom: .75rem; color: #1a56a5; }
+    .forecast-row { display: flex; gap: .5rem; overflow-x: auto; padding-bottom: .5rem; margin-bottom: 1.5rem; }
+    .forecast-card { min-width: 80px; background: #f8fafc; border-radius: 8px; padding: .5rem; text-align: center; font-size: .8rem; }
+    .fc-date { color: #64748b; margin-bottom: .2rem; }
+    .fc-max  { font-weight: 700; color: #dc2626; }
+    .fc-min  { color: #3b82f6; }
+    canvas   { max-width: 100%; }
+  </style>
+</head>
+<body>
+  <h1>🌤 Weather App</h1>
+  <div class="search-bar">
+    <input type="text" id="cityInput" placeholder="Enter city name..." aria-label="City name">
+    <button id="searchBtn">Search</button>
+    <button id="geoBtn" aria-label="Use my location">📍 My Location</button>
+  </div>
+  <div id="loader" hidden>⏳</div>
+  <div id="error"  hidden></div>
+
+  <div id="weather" hidden>
+    <div class="current">
+      <img id="icon" src="" alt="">
+      <div>
+        <p id="city-name"></p>
+        <p id="temp"></p>
+        <p id="feels"></p>
+        <p id="desc"></p>
+      </div>
+    </div>
+    <div class="details">
+      <div class="detail">
+        <div class="detail-label">Humidity</div>
+        <div class="detail-val" id="humidity"></div>
+      </div>
+      <div class="detail">
+        <div class="detail-label">Wind</div>
+        <div class="detail-val" id="wind"></div>
+      </div>
+      <div class="detail">
+        <div class="detail-label">Visibility</div>
+        <div class="detail-val" id="visibility"></div>
+      </div>
+    </div>
+    <h3>5-Day Forecast</h3>
+    <div class="forecast-row" id="forecast-cards"></div>
+    <h3>Next 24 Hours</h3>
+    <canvas id="tempChart"></canvas>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4/dist/chart.umd.min.js"></script>
+  <script type="module" src="app.js"></script>
+</body>
+</html>

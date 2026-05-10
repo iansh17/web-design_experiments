@@ -1,0 +1,194 @@
+/* ==========================================================================
+   EXPERIMENT 4 additions: Accessibility (A11y) & SEO Optimizations
+   ========================================================================== */
+
+/* ── 1. Focus Management (WCAG 2.4.7 Focus Visible) ────────────── */
+:focus {
+  /* Provide a fallback for browsers that don't support focus-visible */
+  outline: 3px solid var(--clr-primary);
+  outline-offset: 3px;
+}
+
+:focus:not(:focus-visible) {
+  /* Remove default focus if browser supports focus-visible and user is clicking */
+  outline: none;
+}
+
+:focus-visible {
+  outline: 3px solid var(--clr-primary);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* Specific focus for dark mode to ensure high contrast */
+[data-theme='dark'] :focus-visible {
+  outline: 3px solid var(--clr-accent); 
+}
+
+/* ── 2. Screen Reader Only Utility Class ───────────────────────── */
+.visually-hidden {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
+/* ── 3. High Contrast Mode Support (Windows High Contrast) ─────── */
+@media (prefers-contrast: high) {
+  :root {
+    --clr-primary: WindowText;
+    --clr-bg: Window;
+    --clr-surface: Window;
+    --clr-text: WindowText;
+    --clr-border: WindowText;
+  }
+  
+  .btn-primary {
+    border: 2px solid WindowText;
+    background: Window;
+    color: WindowText;
+  }
+  
+  .skill-bar {
+    border: 1px solid WindowText;
+  }
+}
+
+/* ── 4. Reduced Motion Preferences (WCAG 2.3.3 Animation) ──────── */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important; /* Disable smooth scrolling */
+  }
+  
+  .blob {
+    display: none; /* Remove distracting animations completely if requested */
+  }
+  
+  .typed-text {
+    border-right: none;
+    animation: none;
+  }
+}
+
+/* ── 5. Accessible Form Styling ────────────────────────────────── */
+.contact-form {
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: var(--clr-text);
+}
+
+.required {
+  color: #d32f2f; /* Dark red for good contrast */
+}
+
+[data-theme='dark'] .required {
+  color: #ff6b6b; /* Lighter red for dark mode */
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 0.75rem;
+  border: 2px solid var(--clr-border);
+  border-radius: var(--radius);
+  background: var(--clr-surface);
+  color: var(--clr-text);
+  font-family: inherit;
+  transition: border-color var(--transition);
+}
+
+.form-group input[aria-invalid="true"],
+.form-group textarea[aria-invalid="true"] {
+  border-color: #d32f2f;
+}
+
+.error-message {
+  color: #d32f2f;
+  font-size: 0.875rem;
+  margin-top: 0.25rem;
+  display: block;
+}
+
+[data-theme='dark'] .error-message {
+  color: #ff6b6b;
+}
+
+/* ── 6. Print Stylesheet (SEO & Accessibility Best Practice) ───── */
+@media print {
+  body {
+    background: #fff;
+    color: #000;
+    font-size: 12pt;
+  }
+  
+  /* Hide unnecessary elements for printing */
+  header, 
+  .theme-toggle, 
+  .hero-visual, 
+  .blob,
+  .contact-form,
+  .skip-link {
+    display: none !important;
+  }
+  
+  /* Expand links to show URLs on paper */
+  a[href^="http"]::after {
+    content: " (" attr(href) ")";
+    font-size: 0.9em;
+    color: #333;
+  }
+  
+  /* Ensure charts/skills print well */
+  .skill-bar {
+    border: 1px solid #000;
+  }
+  
+  .skill-fill {
+    background: #555 !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  
+  /* Avoid page breaks inside cards */
+  .skill-card, 
+  .project-card {
+    page-break-inside: avoid;
+    break-inside: avoid;
+    border: 1px solid #ccc;
+    box-shadow: none;
+  }
+}
+
+/* Footer Nav styling */
+.footer-nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+.footer-nav a {
+  color: var(--clr-muted);
+  text-decoration: underline;
+}

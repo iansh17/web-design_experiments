@@ -2,9 +2,43 @@
 <html>
 <head>
     <title>Experiment 1</title>
+    <style>
+        body {
+            font-family: Arial;
+            text-align: center;
+            background: linear-gradient(to right, #667eea, #764ba2);
+            color: white;
+        }
+
+        button {
+            padding: 10px 20px;
+            border: none;
+            background: white;
+            color: black;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: yellow;
+        }
+    </style>
 </head>
+
 <body>
-    <h1>Hello GitHub 👋</h1>
-    <p>This is Experiment 1</p>
+
+    <h1>Welcome to My Web Experiments 🚀</h1>
+    <p>This is Experiment 1 (Git & GitHub Basics)</p>
+
+    <button onclick="showMessage()">Click Me</button>
+
+    <p id="msg"></p>
+
+    <script>
+        function showMessage() {
+            document.getElementById("msg").innerText = "GitHub is Successfully Connected ✅";
+        }
+    </script>
+
 </body>
 </html>

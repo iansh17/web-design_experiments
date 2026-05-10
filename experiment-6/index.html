@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang='en' data-bs-theme='light'>
+<head>
+  <meta charset='UTF-8'>
+  <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+  <meta name='description' content='Web Design Lab - B.Tech CSE experiments in modern web development by Ansh Dwivedi'>
+  <title>Web Design Lab | Ansh Dwivedi</title>
+
+  <!-- Bootstrap CSS -->
+  <link href='https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css' rel='stylesheet'>
+  
+  <!-- Custom SCSS compiled to CSS -->
+  <link rel='stylesheet' href='dist/custom.css'>
+  
+  <!-- Google Fonts -->
+  <link rel='preconnect' href='https://fonts.googleapis.com'>
+  <link rel='preconnect' href='https://fonts.gstatic.com' crossorigin>
+  <link href='https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap' rel='stylesheet'>
+
+  <!-- Icons -->
+  <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css'>
+</head>
+<body>
+
+  <!-- Skip link for accessibility -->
+  <a class='skip-link' href='#articles'>Skip to content</a>
+
+  <!-- Navbar -->
+  <nav class='navbar navbar-expand-lg sticky-top shadow-sm bg-body-tertiary' aria-label='Main navigation'>
+    <div class='container'>
+      <a class='navbar-brand fw-bold fs-4' href='/'>
+        Web<span class='text-primary'>Lab</span>
+      </a>
+      <button class='navbar-toggler' type='button'
+              data-bs-toggle='collapse' data-bs-target='#mainNav'
+              aria-controls='mainNav' aria-expanded='false'
+              aria-label='Toggle navigation'>
+        <span class='navbar-toggler-icon'></span>
+      </button>
+      <div class='collapse navbar-collapse' id='mainNav'>
+        <ul class='navbar-nav ms-auto me-3 gap-lg-1'>
+          <li class='nav-item'><a class='nav-link active' aria-current='page' href='/'>Home</a></li>
+          <li class='nav-item'><a class='nav-link' href='#articles'>Articles</a></li>
+          <li class='nav-item'><a class='nav-link' href='#about'>About</a></li>
+          <li class='nav-item'><a class='nav-link' href='#contact'>Contact</a></li>
+        </ul>
+        <!-- Dark mode toggle -->
+        <div class='form-check form-switch mb-0' title='Toggle dark mode'>
+          <input class='form-check-input' type='checkbox' id='darkToggle' role='switch' aria-label='Dark mode'>
+          <label class='form-check-label' for='darkToggle'>🌙</label>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <header class='hero-section text-white text-center'>
+    <div class='container'>
+      <span class='badge bg-warning-subtle text-warning-emphasis mb-3'>
+        B.Tech CSE — Web Design Lab 2025-2026
+      </span>
+      <h1 class='display-3 fw-bold mb-3'>Web Design & AI Engineering</h1>
+      <p class='lead mb-4 mx-auto' style='max-width:650px'>
+        Experiments in modern web development, responsive design, and full-stack engineering. 
+        Featuring HTML5, CSS3, JavaScript, Bootstrap, and emerging AI integration techniques.
+      </p>
+      <div class='d-flex gap-3 justify-content-center flex-wrap'>
+        <a href='#articles' class='btn btn-light btn-lg px-4'>
+          Read Articles <i class='bi bi-arrow-down ms-1'></i>
+        </a>
+        <a href='#newsletter' class='btn btn-outline-light btn-lg px-4'>
+          Subscribe
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Search & Filter Bar -->
+  <div class='bg-body-secondary py-3 sticky-top' style='z-index: 98;'>
+    <div class='container'>
+      <div class='row g-3'>
+        <div class='col-md-4'>
+          <div class='input-group'>
+            <span class='input-group-text'><i class='bi bi-search'></i></span>
+            <input type='search' class='form-control' id='postSearch'
+                   placeholder='Search articles...' aria-label='Search posts'>
+          </div>
+        </div>
+        <div class='col-md-8'>
+          <div class='d-flex gap-2 flex-wrap' role='group' aria-label='Filter by category'>
+            <button class='btn btn-primary btn-sm filter-btn active' data-cat='all'>All</button>
+            <button class='btn btn-outline-secondary btn-sm filter-btn' data-cat='web'>Web Design</button>
+            <button class='btn btn-outline-secondary btn-sm filter-btn' data-cat='js'>JavaScript</button>
+            <button class='btn btn-outline-secondary btn-sm filter-btn' data-cat='bootstrap'>Bootstrap</button>
+            <button class='btn btn-outline-secondary btn-sm filter-btn' data-cat='ai'>AI/Web</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Content -->
+  <main class='container my-5' id='articles'>
+    <div class='row g-4'>
+
+      <!-- Blog Posts Column -->
+      <section class='col-lg-8' aria-label='Blog posts'>
+
+        <!-- Featured Post -->
+        <article class='post-card card mb-4 featured-post' data-cat='web'>
+          <div class='row g-0'>
+            <div class='col-md-5'>
+              <img src='https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=600&h=400&fit=crop' 
+                   class='post-img img-fluid h-100' alt='Web design interface'
+                   loading='eager' fetchpriority='high'>
+            </div>
+            <div class='col-md-7'>
+              <div class='card-body h-100 d-flex flex-column p-4'>
+                <div class='d-flex gap-2 mb-2'>
+                  <span class='badge bg-primary post-tag'>Featured</span>
+                  <span class='badge bg-success-subtle text-success-emphasis post-tag'>Web Design</span>
+                </div>
+                <h2 class='card-title h4'>
+                  <a href='#' class='text-body stretched-link'>
+                    Building Responsive Layouts: CSS Grid vs Flexbox
+                  </a>
+                </h2>
+                <p class='card-text text-body-secondary'>
+                  Explore the differences between CSS Grid and Flexbox, understand when to use each, 
+                  and master advanced layout techniques for modern responsive web design.
+                </p>
+                <div class='mt-auto d-flex align-items-center gap-3'>
+                  <img src='https://i.pravatar.cc/32?img=12' class='rounded-circle'
+                       width='32' height='32' alt='Ansh Dwivedi avatar'>
+                  <div>
+                    <p class='post-meta mb-0'><strong>Ansh Dwivedi</strong></p>
+                    <p class='post-meta mb-0'>May 5, 2026 · <span class='reading-time'></span></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Post Grid -->
+        <div class='row g-4' id='postGrid'>
+
+          <!-- Post 1 -->
+          <div class='col-sm-6' data-cat='js'>
+            <article class='post-card card h-100'>
+              <img src='https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=400&h=220&fit=crop' 
+                   class='card-img-top post-img' alt='JavaScript code'
+                   loading='lazy' width='400' height='220'>
+              <div class='card-body d-flex flex-column'>
+                <span class='badge bg-warning-subtle text-warning-emphasis post-tag mb-2 align-self-start'>
+                  JavaScript
+                </span>
+                <h3 class='card-title h5'>
+                  <a href='#' class='text-body stretched-link'>
+                    Mastering Async/Await & Promise Handling
+                  </a>
+                </h3>
+                <p class='card-text text-body-secondary small flex-grow-1'>
+                  Deep dive into asynchronous JavaScript, understand the event loop, 
+                  Promise.all vs Promise.allSettled, and error handling patterns.
+                </p>
+                <p class='post-meta mb-0 mt-3'>May 2, 2026 · <span class='reading-time'></span></p>
+              </div>
+            </article>
+          </div>
+
+          <!-- Post 2 -->
+          <div class='col-sm-6' data-cat='web'>
+            <article class='post-card card h-100'>
+              <img src='https://images.unsplash.com/photo-1561070791-2526d30994b5?w=400&h=220&fit=crop' 
+                   class='card-img-top post-img' alt='CSS3 styling'
+                   loading='lazy' width='400' height='220'>
+              <div class='card-body d-flex flex-column'>
+                <span class='badge bg-success-subtle text-success-emphasis post-tag mb-2 align-self-start'>
+                  CSS3
+                </span>
+                <h3 class='card-title h5'>
+                  <a href='#' class='text-body stretched-link'>
+                    CSS Custom Properties: Advanced Theming
+                  </a>
+                </h3>
+                <p class='card-text text-body-secondary small flex-grow-1'>
+                  Learn CSS variables (--custom-property), build scalable design systems, 
+                  and implement dark mode without JavaScript.
+                </p>
+                <p class='post-meta mb-0 mt-3'>April 28, 2026 · <span class='reading-time'></span></p>
+              </div>
+            </article>
+          </div>
+
+          <!-- Post 3 -->
+          <div class='col-sm-6' data-cat='bootstrap'>
+            <article class='post-card card h-100'>
+              <img src='https://images.unsplash.com/photo-1633356122544-f134324ef6db?w=400&h=220&fit=crop' 
+                   class='card-img-top post-img' alt='Bootstrap framework'
+                   loading='lazy' width='400' height='220'>
+              <div class='card-body d-flex flex-column'>
+                <span class='badge bg-info-subtle text-info-emphasis post-tag mb-2 align-self-start'>
+                  Bootstrap 5
+                </span>
+                <h3 class='card-title h5'>
+                  <a href='#' class='text-body stretched-link'>
+                    Bootstrap 5 SCSS Customisation Guide
+                  </a>
+                </h3>
+                <p class='card-text text-body-secondary small flex-grow-1'>
+                  Override Bootstrap variables, build custom components, and create branded 
+                  designs without conflicting CSS rules.
+                </p>
+                <p class='post-meta mb-0 mt-3'>April 20, 2026 · <span class='reading-time'></span></p>
+              </div>
+            </article>
+          </div>
+
+          <!-- Post 4 -->
+          <div class='col-sm-6' data-cat='ai'>
+            <article class='post-card card h-100'>
+              <img src='https://images.unsplash.com/photo-1677442d019cecf3da285bbb03fc4ee4b7e4caf2e?w=400&h=220&fit=crop' 
+                   class='card-img-top post-img' alt='AI and web integration'
+                   loading='lazy' width='400' height='220'>
+              <div class='card-body d-flex flex-column'>
+                <span class='badge bg-danger-subtle text-danger-emphasis post-tag mb-2 align-self-start'>
+                  AI Integration
+                </span>
+                <h3 class='card-title h5'>
+                  <a href='#' class='text-body stretched-link'>
+                    REST APIs & Async Data Fetching
+                  </a>
+                </h3>
+                <p class='card-text text-body-secondary small flex-grow-1'>
+                  Consume external APIs, handle errors gracefully, implement caching strategies, 
+                  and build real-time data applications.
+                </p>
+                <p class='post-meta mb-0 mt-3'>April 15, 2026 · <span class='reading-time'></span></p>
+              </div>
+            </article>
+          </div>
+
+        </div>
+
+        <!-- Pagination -->
+        <nav class='mt-5' aria-label='Blog pagination'>
+          <ul class='pagination justify-content-center'>
+            <li class='page-item disabled'>
+              <span class='page-link' aria-label='Previous'>
+                <span aria-hidden='true'>&laquo;</span>
+              </span>
+            </li>
+            <li class='page-item active' aria-current='page'>
+              <span class='page-link'>1</span>
+            </li>
+            <li class='page-item'><a class='page-link' href='#'>2</a></li>
+            <li class='page-item'><a class='page-link' href='#'>3</a></li>
+            <li class='page-item'>
+              <a class='page-link' href='#' aria-label='Next'>
+                <span aria-hidden='true'>&raquo;</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+
+      </section>
+
+      <!-- Sidebar -->
+      <aside class='col-lg-4' aria-label='Sidebar'>
+
+        <!-- About Widget -->
+        <div class='card border-0 shadow-sm author-card mb-4'>
+          <img src='https://i.pravatar.cc/150?img=12' class='rounded-circle'
+               width='80' height='80' alt='Ansh Dwivedi'>
+          <h3 class='h5 mb-2'>Ansh Dwivedi</h3>
+          <p class='small text-body-secondary mb-3'>
+            B.Tech IT @ JSS Academy, Noida. AI Engineer | Full-Stack Developer | 
+            Passionate about Agentic AI, GenAI, and building scalable web applications.
+          </p>
+          <a href='https://linkedin.com/in/iansh17' class='btn btn-primary btn-sm' 
+             target='_blank' rel='noopener'>View Profile</a>
+        </div>
+
+        <!-- Categories Widget -->
+        <div class='card border-0 shadow-sm mb-4'>
+          <div class='card-body'>
+            <h3 class='h6 text-uppercase text-body-secondary mb-3'>Categories</h3>
+            <ul class='list-group list-group-flush'>
+              <li class='list-group-item d-flex justify-content-between'>
+                Web Design <span class='badge bg-primary rounded-pill'>5</span>
+              </li>
+              <li class='list-group-item d-flex justify-content-between'>
+                JavaScript <span class='badge bg-primary rounded-pill'>4</span>
+              </li>
+              <li class='list-group-item d-flex justify-content-between'>
+                Bootstrap <span class='badge bg-primary rounded-pill'>3</span>
+              </li>
+              <li class='list-group-item d-flex justify-content-between'>
+                AI Integration <span class='badge bg-primary rounded-pill'>2</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Newsletter Widget -->
+        <div class='card border-0 shadow-sm' id='newsletter'>
+          <div class='card-body'>
+            <h3 class='h6 text-uppercase text-body-secondary mb-3'>Newsletter</h3>
+            <p class='small text-body-secondary mb-3'>
+              Get the latest web design experiments and AI insights delivered weekly.
+            </p>
+            <form id='newsletterForm'>
+              <div class='mb-2'>
+                <label class='visually-hidden' for='sub-email'>Email address</label>
+                <input class='form-control form-control-sm' type='email'
+                       id='sub-email' placeholder='Your email' required
+                       autocomplete='email'>
+              </div>
+              <button class='btn btn-primary btn-sm w-100' type='submit'>
+                Subscribe
+              </button>
+            </form>
+          </div>
+        </div>
+
+      </aside>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class='bg-dark text-white py-4 mt-5'>
+    <div class='container'>
+      <div class='row mb-3'>
+        <div class='col-md-4 mb-3'>
+          <h4 class='h6 fw-bold'>Web Design Lab</h4>
+          <p class='small text-body-secondary'>
+            B.Tech CSE 4th Semester laboratory experiments by Ansh Dwivedi. 
+            Focus on modern web technologies and responsive design.
+          </p>
+        </div>
+        <div class='col-md-4 mb-3'>
+          <h4 class='h6 fw-bold'>Quick Links</h4>
+          <ul class='list-unstyled small'>
+            <li><a href='/' class='text-body-secondary text-decoration-none'>Home</a></li>
+            <li><a href='#articles' class='text-body-secondary text-decoration-none'>Articles</a></li>
+            <li><a href='https://github.com/iansh17' class='text-body-secondary text-decoration-none'>GitHub</a></li>
+          </ul>
+        </div>
+        <div class='col-md-4'>
+          <h4 class='h6 fw-bold'>Connect</h4>
+          <div class='d-flex gap-2'>
+            <a href='https://linkedin.com/in/iansh17' class='text-white fs-5' aria-label='LinkedIn' target='_blank' rel='noopener'>
+              <i class='bi bi-linkedin'></i>
+            </a>
+            <a href='https://github.com/iansh17' class='text-white fs-5' aria-label='GitHub' target='_blank' rel='noopener'>
+              <i class='bi bi-github'></i>
+            </a>
+            <a href='mailto:ansh@example.com' class='text-white fs-5' aria-label='Email'>
+              <i class='bi bi-envelope-fill'></i>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class='border-top border-secondary pt-3 mt-3 text-center small text-body-secondary'>
+        &copy; 2026 Ansh Dwivedi. All rights reserved. | Built with Bootstrap 5 & SCSS.
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap Bundle with Popper -->
+  <script src='https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js'></script>
+  
+  <!-- Custom JavaScript -->
+  <script src='script.js'></script>
+</body>
+</html>

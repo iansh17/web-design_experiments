@@ -1,25 +1,230 @@
 <!DOCTYPE html>
-<html>
+<html lang='en' data-theme='light'>
 <head>
-    <title>Portfolio</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset='UTF-8'>
+  <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+  <meta name='description' content='Portfolio of Ansh Dwivedi, AI Engineer & Full-Stack Developer specializing in Agentic AI, GenAI, and Software Development'>
+  <title>Ansh Dwivedi | AI Engineer & Developer</title>
+  
+  <!-- Preload critical font -->
+  <link rel='preload' href='fonts/Inter.woff2' as='font' crossorigin>
+  <link rel='stylesheet' href='style.css'>
 </head>
 <body>
-
-<h1>My Portfolio</h1>
-
-<section>
-    <h2>About Me</h2>
-    <p>I am a student learning web development.</p>
-</section>
-
-<section>
-    <h2>Skills</h2>
-    <ul>
-        <li>HTML</li>
-        <li>CSS</li>
-    </ul>
-</section>
-
+  <!-- Skip navigation for screen readers -->
+  <a class='skip-link' href='#main-content'>Skip to main content</a>
+  
+  <header role='banner'>
+    <nav class='navbar' role='navigation' aria-label='Primary navigation'>
+      <a class='logo' href='#' aria-label='Home'>Ansh<span>Dev</span></a>
+      <button class='nav-toggle' aria-expanded='false'
+              aria-controls='nav-menu' aria-label='Toggle menu'>
+        <span class='hamburger'></span>
+      </button>
+      <ul class='nav-links' id='nav-menu' role='list'>
+        <li><a href='#about'>About</a></li>
+        <li><a href='#skills'>Skills</a></li>
+        <li><a href='#projects'>Projects</a></li>
+        <li><a href='#contact'>Contact</a></li>
+      </ul>
+      <button class='theme-toggle' aria-label='Toggle dark mode'>🌙</button>
+    </nav>
+  </header>
+  
+  <main id='main-content' role='main'>
+    <!-- Hero -->
+    <section id='hero' aria-labelledby='hero-heading'>
+      <div class='hero-content'>
+        <p class='hero-greeting'>Hello, I am</p>
+        <h1 id='hero-heading'>
+          <span class='typed-text' aria-live='polite'></span>
+        </h1>
+        <p class='hero-subtitle'>AI Engineer · Agentic Systems · Full-Stack Developer</p>
+        <p class='hero-description'>
+          B.Tech IT student at JSS Academy of Technical Education, Noida<br>
+          Building intelligent systems with Python, C++, JavaScript | Passionate about GenAI & Agentic AI
+        </p>
+        <div class='hero-cta'>
+          <a href='#projects' class='btn btn-primary'>View Projects</a>
+          <a href='https://linkedin.com/in/iansh17' class='btn btn-outline'
+             target='_blank' rel='noopener' aria-label='LinkedIn Profile'>LinkedIn Profile</a>
+        </div>
+      </div>
+      <div class='hero-visual' aria-hidden='true'>
+        <div class='blob'></div>
+        <img src='avatar.webp' alt='Portrait of Ansh Dwivedi'
+             loading='eager' fetchpriority='high'>
+      </div>
+    </section>
+    
+    <!-- About -->
+    <section id='about' aria-labelledby='about-heading'>
+      <div class='container'>
+        <h2 id='about-heading'>About Me</h2>
+        <p class='lead'>
+          I'm an aspiring AI Engineer from Noida, India, currently pursuing B.Tech in Information Technology 
+          at JSS Academy of Technical Education. My journey started with JavaScript app development in 2021, 
+          building over 20 projects, and I've since expanded into AI, with 30+ repositories on GitHub.
+        </p>
+        <p>
+          Currently enrolled in the <strong>Certification Program in Agentic Systems and Design</strong> at 
+          <strong>iHUB DivyaSampark @ IIT Roorkee</strong> in collaboration with Masai School, where I'm 
+          mastering LLMs, LangGraph, FastAPI, RAG architectures, and production-ready agent systems.
+        </p>
+        <p>
+          I thrive on building practical solutions across AI, automation, and web technologies. 
+          My technical stack includes Python (Pandas), C++, JavaScript (ES6+), SQL, and MongoDB, with a strong focus 
+          on Agentic AI, GenAI, and modern software architecture. I'm actively seeking internships and 
+          collaborations in software development, AI, and automation (Hybrid/Remote in Noida).
+        </p>
+      </div>
+    </section>
+    
+    <!-- Skills -->
+    <section id='skills' aria-labelledby='skills-heading'>
+      <h2 id='skills-heading'>Technical Skills</h2>
+      <div class='skills-grid' role='list'>
+        <article class='skill-card' role='listitem'>
+          <div class='skill-bar' role='progressbar'
+               aria-valuenow='90' aria-valuemin='0' aria-valuemax='100'
+               aria-label='Python proficiency 90%'>
+            <div class='skill-fill' style='--pct: 90%'></div>
+          </div>
+          <span>Python (Pandas, FastAPI)</span>
+        </article>
+        
+        <article class='skill-card' role='listitem'>
+          <div class='skill-bar' role='progressbar'
+               aria-valuenow='85' aria-valuemin='0' aria-valuemax='100'
+               aria-label='JavaScript proficiency 85%'>
+            <div class='skill-fill' style='--pct: 85%'></div>
+          </div>
+          <span>JavaScript (ES6+)</span>
+        </article>
+        
+        <article class='skill-card' role='listitem'>
+          <div class='skill-bar' role='progressbar'
+               aria-valuenow='80' aria-valuemin='0' aria-valuemax='100'
+               aria-label='C++ proficiency 80%'>
+            <div class='skill-fill' style='--pct: 80%'></div>
+          </div>
+          <span>C++</span>
+        </article>
+        
+        <article class='skill-card' role='listitem'>
+          <div class='skill-bar' role='progressbar'
+               aria-valuenow='88' aria-valuemin='0' aria-valuemax='100'
+               aria-label='AI & ML proficiency 88%'>
+            <div class='skill-fill' style='--pct: 88%'></div>
+          </div>
+          <span>AI & ML (LLMs, LangGraph, RAG)</span>
+        </article>
+        
+        <article class='skill-card' role='listitem'>
+          <div class='skill-bar' role='progressbar'
+               aria-valuenow='75' aria-valuemin='0' aria-valuemax='100'
+               aria-label='Database proficiency 75%'>
+            <div class='skill-fill' style='--pct: 75%'></div>
+          </div>
+          <span>SQL & MongoDB</span>
+        </article>
+        
+        <article class='skill-card' role='listitem'>
+          <div class='skill-bar' role='progressbar'
+               aria-valuenow='82' aria-valuemin='0' aria-valuemax='100'
+               aria-label='HTML/CSS proficiency 82%'>
+            <div class='skill-fill' style='--pct: 82%'></div>
+          </div>
+          <span>HTML5 / CSS3</span>
+        </article>
+      </div>
+    </section>
+    
+    <!-- Projects Grid -->
+    <section id='projects' aria-labelledby='projects-heading'>
+      <h2 id='projects-heading'>Featured Projects</h2>
+      <div class='projects-grid'>
+        <article class='project-card' tabindex='0'>
+          <img src='proj1.webp' alt='Screenshot of Agentic AI System'
+               loading='lazy' width='400' height='220'>
+          <div class='card-body'>
+            <h3>Agentic AI System</h3>
+            <p>Production-ready AI agent built with LangGraph, FastAPI, and RAG architecture for intelligent task automation and reasoning.</p>
+            <div class='tags' aria-label='Technologies'>
+              <span class='tag'>Python</span>
+              <span class='tag'>LangGraph</span>
+              <span class='tag'>FastAPI</span>
+              <span class='tag'>RAG</span>
+            </div>
+            <div class='card-links'>
+              <a href='#' aria-label='Live demo of Agentic AI System'>Live</a>
+              <a href='https://github.com/iansh17' target='_blank' rel='noopener' aria-label='GitHub profile'>Code</a>
+            </div>
+          </div>
+        </article>
+        
+        <article class='project-card' tabindex='0'>
+          <img src='proj2.webp' alt='Screenshot of GenAI Application'
+               loading='lazy' width='400' height='220'>
+          <div class='card-body'>
+            <h3>GenAI Application</h3>
+            <p>Generative AI application leveraging LLM fundamentals, prompt engineering, and ReAct reasoning strategies.</p>
+            <div class='tags' aria-label='Technologies'>
+              <span class='tag'>Python</span>
+              <span class='tag'>LLMs</span>
+              <span class='tag'>Prompt Engineering</span>
+              <span class='tag'>Transformers</span>
+            </div>
+            <div class='card-links'>
+              <a href='#' aria-label='Live demo of GenAI Application'>Live</a>
+              <a href='https://github.com/iansh17' target='_blank' rel='noopener' aria-label='GitHub profile'>Code</a>
+            </div>
+          </div>
+        </article>
+        
+        <article class='project-card' tabindex='0'>
+          <img src='proj3.webp' alt='Screenshot of Full-Stack Web App'
+               loading='lazy' width='400' height='220'>
+          <div class='card-body'>
+            <h3>Full-Stack Web Application</h3>
+            <p>Modern web application built with JavaScript ES6+, featuring MongoDB integration and responsive design.</p>
+            <div class='tags' aria-label='Technologies'>
+              <span class='tag'>JavaScript</span>
+              <span class='tag'>MongoDB</span>
+              <span class='tag'>HTML/CSS</span>
+              <span class='tag'>Node.js</span>
+            </div>
+            <div class='card-links'>
+              <a href='#' aria-label='Live demo of Web Application'>Live</a>
+              <a href='https://github.com/iansh17' target='_blank' rel='noopener' aria-label='GitHub profile'>Code</a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+    
+    <!-- Contact -->
+    <section id='contact' aria-labelledby='contact-heading'>
+      <h2 id='contact-heading'>Get In Touch</h2>
+      <p class='lead'>I'm actively seeking internships and collaborations in AI, software development, and automation in Noida (Hybrid/Remote).</p>
+      <div class='contact-links'>
+        <a href='https://linkedin.com/in/iansh17' class='btn btn-primary' target='_blank' rel='noopener'>
+          LinkedIn
+        </a>
+        <a href='https://github.com/iansh17' class='btn btn-outline' target='_blank' rel='noopener'>
+          GitHub (30+ repos)
+        </a>
+        <a href='mailto:ansh@example.com' class='btn btn-outline'>
+          Email Me
+        </a>
+      </div>
+    </section>
+  </main>
+  
+  <footer role='contentinfo'>
+    <p>&copy; 2026 Ansh Dwivedi. Built with ❤ and vanilla HTML/CSS/JS.</p>
+    <p>Noida, Uttar Pradesh, India | B.Tech IT @ JSS Academy</p>
+  </footer>
+  <script src='script.js' defer></script>
 </body>
 </html>

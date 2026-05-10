@@ -1,18 +1,74 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>To Do List</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Advanced To-Do List</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: Arial, sans-serif; background: #f1f5f9; min-height: 100vh;
+           display: flex; justify-content: center; padding: 2rem 1rem; }
+    .app { background: #fff; border-radius: 16px; padding: 2rem;
+           width: 100%; max-width: 600px; box-shadow: 0 4px 24px rgba(0,0,0,.1); }
+    h1 { text-align: center; margin-bottom: 1.5rem; color: #1a56a5; }
+    .controls { display: flex; gap: .5rem; margin-bottom: 1rem; flex-wrap: wrap; }
+    #taskInput { flex: 1; padding: .65rem 1rem; border: 1px solid #cbd5e1;
+                 border-radius: 8px; font-size: 1rem; }
+    #prioritySelect, #sortSelect {
+      padding: .65rem .5rem; border: 1px solid #cbd5e1; border-radius: 8px; }
+    #addBtn { background: #1a56a5; color: #fff; border: none; padding: .65rem 1.2rem;
+              border-radius: 8px; cursor: pointer; font-size: 1rem; }
+    #addBtn:hover { background: #d97706; }
+    .filters { display: flex; gap: .5rem; margin-bottom: 1rem; flex-wrap: wrap; }
+    .filters button {
+      padding: .4rem .9rem; border-radius: 100vw; border: 1px solid #cbd5e1;
+      background: #fff; cursor: pointer; font-size: .85rem; }
+    .filters button[aria-current] { background: #1a56a5; color: #fff; border-color: #1a56a5; }
+    #counter { font-size: .85rem; color: #64748b; margin-bottom: 1rem; }
+    #taskList { list-style: none; display: flex; flex-direction: column; gap: .5rem; }
+    .task-item {
+      display: flex; align-items: center; gap: .6rem; padding: .75rem 1rem;
+      background: #f8fafc; border-radius: 8px; border-left: 4px solid #cbd5e1;
+      cursor: grab;
+    }
+    .task-item.priority-high   { border-left-color: #dc2626; }
+    .task-item.priority-medium { border-left-color: #d97706; }
+    .task-item.priority-low    { border-left-color: #16a34a; }
+    .task-item.completed .task-text { text-decoration: line-through; color: #94a3b8; }
+    .task-item.dragging { opacity: .5; }
+    .task-text { flex: 1; font-size: .95rem; }
+    .badge { font-size: .7rem; padding: .15rem .5rem; border-radius: 100vw; color: #fff; }
+    .badge-high   { background: #dc2626; }
+    .badge-medium { background: #d97706; }
+    .badge-low    { background: #16a34a; }
+    .check-btn, .edit-btn, .delete-btn {
+      background: none; border: none; cursor: pointer; font-size: 1rem; padding: .2rem; }
+  </style>
 </head>
 <body>
-
-<h1>To Do List</h1>
-
-<input type="text" id="taskInput">
-<button onclick="addTask()">Add</button>
-
-<ul id="taskList"></ul>
-
-<script src="script.js"></script>
+  <div class="app">
+    <h1>📝 My To-Do List</h1>
+    <div class="controls">
+      <input type="text" id="taskInput" placeholder="Enter a new task..." aria-label="Task input">
+      <select id="prioritySelect" aria-label="Priority">
+        <option value="medium">Medium</option>
+        <option value="high">High</option>
+        <option value="low">Low</option>
+      </select>
+      <button id="addBtn">Add</button>
+    </div>
+    <div class="filters" role="group" aria-label="Filter tasks">
+      <button data-filter="all" aria-current="true">All</button>
+      <button data-filter="active">Active</button>
+      <button data-filter="completed">Completed</button>
+      <select id="sortSelect" aria-label="Sort by">
+        <option value="order">Default Order</option>
+        <option value="priority">By Priority</option>
+      </select>
+    </div>
+    <p id="counter">0 remaining</p>
+    <ul id="taskList" role="list" aria-label="Task list"></ul>
+  </div>
+  <script type="module" src="app.js"></script>
 </body>
 </html>
